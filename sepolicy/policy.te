@@ -1,0 +1,77 @@
+
+
+#============= hal_camera_default ==============
+allow hal_camera_default system_file:file { execute getattr open read };
+allow hal_camera_default vndbinder_device:chr_file { ioctl open read write };
+
+#============= hal_configstore_default ==============
+allow hal_configstore_default system_file:file { execute getattr open read };
+
+#============= hal_health_default ==============
+allow hal_health_default sysfs:file { getattr open read };
+
+#============= hal_keymaster_default ==============
+allow hal_keymaster_default system_file:file { execute getattr open read };
+
+#============= hal_wifi_default ==============
+allow hal_wifi_default system_file:file { getattr open read };
+
+#============= healthd ==============
+allow healthd sysfs:file { getattr open read };
+
+#============= init ==============
+allow init vendor_file:file { execute execute_no_trans };
+
+#============= llkd ==============
+allow llkd init:process ptrace;
+
+
+
+
+#============= hal_camera_default ==============
+allow hal_camera_default system_file:file { execute getattr open read };
+allow hal_camera_default vndbinder_device:chr_file { ioctl open read write };
+
+#============= hal_configstore_default ==============
+allow hal_configstore_default system_file:file { execute getattr open read };
+
+#============= hal_health_default ==============
+allow hal_health_default sysfs:file { getattr open read };
+
+#============= hal_keymaster_default ==============
+allow hal_keymaster_default system_file:file { execute getattr open read };
+
+#============= hal_wifi_default ==============
+allow hal_wifi_default system_file:file { getattr open read };
+
+#============= healthd ==============
+allow healthd sysfs:file { getattr open read };
+
+#============= init ==============
+allow init vendor_file:file { execute execute_no_trans };
+
+#============= llkd ==============
+allow llkd init:process ptrace;
+
+
+#============= crash_dump ==============
+allow crash_dump bluetooth_prop:file { getattr open };
+allow crash_dump hwservicemanager_prop:file { getattr open };
+
+#============= hal_audio_default ==============
+allow hal_audio_default system_file:file { execute getattr open read };
+
+#============= hal_graphics_composer_default ==============
+allow hal_graphics_composer_default vndbinder_device:chr_file ioctl;
+
+#============= init ==============
+allow init self:netlink_kobject_uevent_socket read;
+
+#============= mediacodec ==============
+allow mediacodec system_file:file { getattr open read };
+
+#============= netd ==============
+allow netd device:file { open write };
+
+#============= zygote ==============
+allow zygote system_file:dir mounton;

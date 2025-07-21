@@ -1,0 +1,33 @@
+import /vendor/etc/init/hw/init.common.rc
+
+on post-fs
+    insmod /vendor/lib/modules/bstclass.ko
+    #insmod /vendor/lib/modules/bma2x2.ko
+    #insmod /vendor/lib/modules/ltr_558als.ko
+    #insmod /vendor/lib/modules/akm09911.ko
+    
+    #added by cheguosheng
+    insmod /vendor/lib/modules/stk8baxx.ko
+    insmod /vendor/lib/modules/da218b.ko
+    insmod /vendor/lib/modules/mc34xx.ko
+    insmod /vendor/lib/modules/mir3da.ko
+    insmod /vendor/lib/modules/stk3x1x.ko
+	insmod /vendor/lib/modules/stk3x3x.ko
+	
+on post-fs-data
+    setprop fpga.target.enable 1
+    setprop debug.delaytime.min 10
+    setprop debug.delaytime.mid 100
+    setprop debug.delaytime.max 1000
+    setprop debug.android_watchdog.disable 1
+
+#modify permission for voicetrigger dev
+    chown system  audio /dev/rt5512
+    chmod 660     /dev/rt5512
+
+on boot
+
+# block I/O vm.dirty parameters
+    write /proc/sys/vm/dirty_background_bytes 4194304
+    write /proc/sys/vm/dirty_bytes  52428800
+

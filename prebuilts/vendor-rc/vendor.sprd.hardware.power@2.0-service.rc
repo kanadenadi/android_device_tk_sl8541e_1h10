@@ -1,0 +1,5 @@
+service power-hal-2-0-sprd /vendor/bin/hw/vendor.sprd.hardware.power@2.0-service
+    class hal
+    user system
+    group system
+    vndk 27

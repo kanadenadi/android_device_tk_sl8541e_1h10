@@ -1,0 +1,5 @@
+#Dynamic partitions fstab file
+#<dev> <mnt_point> <type> <mnt_flags options>  <fs_mgr_flags>
+
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/system /system ext4 ro,barrier=1 wait,first_stage_mount
+/dev/block/platform/soc/soc:ap-ahb/20600000.sdio/by-name/vendor /vendor ext4 ro,barrier=1 wait,first_stage_mount

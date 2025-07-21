@@ -1,0 +1,5 @@
+service face_hal /vendor/bin/hw/vendor.sprd.hardware.face@1.0-service
+    class hal
+    user system
+    group system
+    vndk 27

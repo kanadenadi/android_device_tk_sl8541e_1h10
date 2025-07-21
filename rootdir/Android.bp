@@ -1,0 +1,12 @@
+//
+// Copyright (C) 2025 The LineageOS Project
+//
+// SPDX-License-Identifier: Apache-2.0
+//
+
+// Init scripts
+sh_binary {
+    name: "zram.sh",
+    src: "bin/zram.sh",
+    vendor: true,
+}

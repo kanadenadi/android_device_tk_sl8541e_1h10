@@ -1,0 +1,21 @@
+# 基础配置
+dir.vendor = /vendor/bin/
+dir.system = /system/bin/
+
+[vendor]
+# 1. 确保严格隔离
+namespace.default.isolated = true
+
+# 2. 调整搜索路径顺序（hw优先）
+namespace.default.search.paths = /vendor/${LIB}/hw:/vendor/${LIB}/egl:/vendor/${LIB}:/system/${LIB}/vndk:/vendor/${LIB}/vndk-sp:/system/${LIB}/vndk-sp
+
+# 3. 添加明确权限声明（关键修复！）
+namespace.default.permitted.paths = /vendor/${LIB}/hw:/vendor/${LIB}/egl:/vendor/${LIB}:/system/${LIB}/vndk:/vendor/${LIB}/vndk-sp:/system/${LIB}/vndk-sp
+
+# 4. ASAN路径适配（如果使用）
+namespace.default.asan.search.paths = /data/asan/vendor/${LIB}/hw:/data/asan/vendor/${LIB}/egl:/data/asan/vendor/${LIB}:/data/asan/system/${LIB}/vndk:/data/asan/vendor/${LIB}/vndk-sp:/data/asan/system/${LIB}/vndk-sp
+namespace.default.asan.permitted.paths = /data/asan/vendor/${LIB}/hw:/data/asan/vendor/${LIB}/egl:/data/asan/vendor/${LIB}:/data/asan/system/${LIB}/vndk:/data/asan/vendor/${LIB}/vndk-sp:/data/asan/system/${LIB}/vndk-sp
+
+# 5. 启用调试日志（验证后移除）
+namespace.default.log.searches = true
+namespace.default.log.failures = true
